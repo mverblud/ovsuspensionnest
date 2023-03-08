@@ -14,11 +14,16 @@ yarn install
 npm i -g @nestjs/cli
 ```
 
-4. Clonar el archivo ```.env.template``` y renombrar la copia a ```.env```
+4. Levantar la BD
+```
+docker-compose up -d
+```
 
-5. Llenar las variables de entorno definidas en el ```.env```
+5. Clonar el archivo ```.env.template``` y renombrar la copia a ```.env```
 
-6. Ejecutar la aplicación en dev:
+6. Llenar las variables de entorno definidas en el ```.env```
+
+7. Ejecutar la aplicación en dev:
 ```
 yarn start:dev
 ```
