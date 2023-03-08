@@ -6,11 +6,11 @@ import { EnvConfiguration } from './config/configuration';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [EnvConfiguration]
+      load: [EnvConfiguration],
     }),
-    MongooseModule.forRoot(process.env.MONGODB)],
+    MongooseModule.forRoot(process.env.MONGODB),
+  ],
   controllers: [],
   providers: [],
 })
-
-export class AppModule { }
+export class AppModule {}
