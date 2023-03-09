@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  ovsupensionapp:
+    depends_on:
+      - db
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: ovsupension-docker
+    container_name: ovsupensionapp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+    # working_dir: /var/www/ovsupension
+    environment:
+      MONGODB: ${MONGODB}
+      PORT: ${PORT}
+    # volumes:
+    #   - ./:/var/www/ovsupension
+
+  db:
+    image: mongo:5
+    container_name: mongo-ov
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: ovSuspensionDB
+    volumes:
+      - ./mongo:/data/db
