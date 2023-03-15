@@ -30,7 +30,7 @@ export class CategoriesService {
     const { limit = 25, offset = 0 } = paginatioDto;
     const query = { state: true };
 
-    const [total, categories] = await Promise.all([
+    const [count, categories] = await Promise.all([
       this.categoryModel.countDocuments(query),
       this.categoryModel
         .find(query)
@@ -41,7 +41,7 @@ export class CategoriesService {
     ]);
 
     return {
-      total,
+      count,
       offset,
       limit,
       categories,
@@ -99,5 +99,9 @@ export class CategoriesService {
     throw new InternalServerErrorException(
       `Can't create Category - Check server logs`,
     );
+  }
+
+  async deleteAllCategories() {
+    await this.categoryModel.deleteMany();
   }
 }

@@ -12,5 +12,6 @@ import { CategoriesSchema, Category } from './entities/category.entity';
       { name: Category.name, schema: CategoriesSchema },
     ]),
   ],
+  exports:[CategoriesService,MongooseModule]
 })
 export class CategoriesModule {}

@@ -5,6 +5,7 @@ import { EnvConfiguration } from './config/configuration';
 import { JoiValidationSchema } from './config/joi.validation';
 import { CategoriesModule } from './categories/categories.module';
 import { CommonModule } from './common/common.module';
+import { SeedModule } from './seed/seed.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CommonModule } from './common/common.module';
     MongooseModule.forRoot(process.env.MONGODB),
     CategoriesModule,
     CommonModule,
+    SeedModule,
   ],
   controllers: [],
   providers: [],
