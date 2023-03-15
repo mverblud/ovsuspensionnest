@@ -15,9 +15,7 @@ export class SeedService {
   ){}
 
   async executeSeed() {
-
     await this.insertNewCategories();
-
     return `seed Executed`;
   }
 
