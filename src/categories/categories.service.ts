@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
@@ -25,8 +26,26 @@ export class CategoriesService {
     }
   }
 
-  findAll() {
-    return `This action returns all categories`;
+  async findAll(paginatioDto: PaginationDto) {
+    const { limit = 25, offset = 0 } = paginatioDto;
+    const query = { state: true };
+
+    const [total, categories] = await Promise.all([
+      this.categoryModel.countDocuments(query),
+      this.categoryModel
+        .find(query)
+        .skip(offset)
+        .limit(limit)
+        .sort({ name: 1 })
+        .select('-__v'),
+    ]);
+
+    return {
+      total,
+      offset,
+      limit,
+      categories,
+    };
   }
 
   async findOne(term: string) {
