@@ -8,7 +8,7 @@ interface SeedData {
     categories: SeedCategory[];
 }
 
-export const initialData: SeedData = {
+export const initialDataCategories: SeedData = {
     categories:[
         {
             name: 'ABRAZADERA',

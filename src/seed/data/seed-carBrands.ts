@@ -8,7 +8,7 @@ interface SeedData {
     carBrands: SeedCarBrands[];
 }
 
-export const initialData: SeedData = {
+export const initialDataCarBrands: SeedData = {
     carBrands:[
         {
             name: "AGRALE",

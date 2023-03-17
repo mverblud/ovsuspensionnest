@@ -6,6 +6,7 @@ import { JoiValidationSchema } from './config/joi.validation';
 import { CategoriesModule } from './categories/categories.module';
 import { CommonModule } from './common/common.module';
 import { SeedModule } from './seed/seed.module';
+import { CarBrandsModule } from './car-brands/car-brands.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { SeedModule } from './seed/seed.module';
     CategoriesModule,
     CommonModule,
     SeedModule,
+    CarBrandsModule,
   ],
   controllers: [],
   providers: [],
