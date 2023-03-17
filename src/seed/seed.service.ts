@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Category } from 'src/categories/entities/category.entity';
-import { CategoriesService } from '../categories/categories.service';
 import { initialData } from './data/seed-categories';
 
 @Injectable()
