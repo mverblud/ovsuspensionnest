@@ -13,10 +13,12 @@ import { Category } from './entities/category.entity';
 
 @Injectable()
 export class CategoriesService {
+  
   constructor(
     @InjectModel(Category.name)
     private readonly categoryModel: Model<Category>,
   ) {}
+
   async create(createCategoryDto: CreateCategoryDto) {
     try {
       const category = await this.categoryModel.create(createCategoryDto);
@@ -81,10 +83,10 @@ export class CategoriesService {
   }
 
   async remove(id: string) {
-    const category = await this.categoryModel.findByIdAndUpdate(id, {
-      status: false,
+    const category:Category = await this.categoryModel.findByIdAndUpdate(id, {
+      state: false,
     });
-    if (!category)
+    if (category.state === false)
       throw new NotFoundException(`Category whith id "${id}" not found`);
     return { message: `Category id "${id}" deleted` };
   }
@@ -100,8 +102,5 @@ export class CategoriesService {
       `Can't create Category - Check server logs`,
     );
   }
-
-  async deleteAllCategories() {
-    await this.categoryModel.deleteMany();
-  }
+  
 }
