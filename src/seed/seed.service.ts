@@ -11,23 +11,16 @@ export class SeedService {
   constructor(
     @InjectModel(Category.name)
     private readonly categoryModel: Model<Category>,
-    private readonly categoriesService: CategoriesService
   ){}
 
   async executeSeed() {
-    await this.insertNewCategories();
-    return `seed Executed`;
-  }
-
-  private async insertNewCategories() {
 
     const categories = initialData.categories;
 
     await this.categoryModel.deleteMany();
     await this.categoryModel.insertMany(categories);
 
-    return true;
+    return `seed Executed`;
   }
-
 
 }
