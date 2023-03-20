@@ -4,6 +4,7 @@ import { SeedController } from './seed.controller';
 import { CategoriesModule } from '../categories/categories.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CarBrandsModule } from '../car-brands/car-brands.module';
+import { ProductBrandsModule } from '../product-brands/product-brands.module';
 
 @Module({
   controllers: [SeedController],
@@ -11,6 +12,7 @@ import { CarBrandsModule } from '../car-brands/car-brands.module';
   imports:[
     CategoriesModule,
     CarBrandsModule,
+    ProductBrandsModule,
     MongooseModule
   ]
 })
