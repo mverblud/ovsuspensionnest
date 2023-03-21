@@ -7,6 +7,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { CommonModule } from './common/common.module';
 import { SeedModule } from './seed/seed.module';
 import { CarBrandsModule } from './car-brands/car-brands.module';
+import { ProvidersModule } from './providers/providers.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { CarBrandsModule } from './car-brands/car-brands.module';
     CommonModule,
     SeedModule,
     CarBrandsModule,
+    ProvidersModule,
   ],
   controllers: [],
   providers: [],
