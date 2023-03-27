@@ -88,8 +88,8 @@ export class ProvidersService {
       state: false,
     });
     if (provider.state === false)
-      throw new NotFoundException(`Product Brand whith id "${id}" not found`);
-    return { message: `Product Brand id "${id}" deleted` };
+      throw new NotFoundException(`Provider whith id "${id}" not found`);
+    return { message: `Provider id "${id}" deleted` };
   }
 
   private handleExceptions(error: any) {
